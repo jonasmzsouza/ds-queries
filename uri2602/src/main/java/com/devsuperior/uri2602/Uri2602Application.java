@@ -31,6 +31,11 @@ public class Uri2602Application implements CommandLineRunner {
 		System.out.println("\n*** SQL RESULT:");
 		result1.forEach(c -> System.out.println(c));
 		System.out.println("\n\n");
+		
+		//JPQL
+		List<CustomerMinDTO> result2 = repository.search2("rs");
+		System.out.println("\n*** JPQL RESULT:");
+		result2.forEach(c -> System.out.println(c));
 
 	}
 }
