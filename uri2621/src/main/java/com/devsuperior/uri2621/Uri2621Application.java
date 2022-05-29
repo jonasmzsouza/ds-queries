@@ -17,20 +17,25 @@ public class Uri2621Application implements CommandLineRunner {
 
 	@Autowired
 	private ProductRepository repository;
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(Uri2621Application.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		
+
 		// SQL
 		List<ProductMinProjection> list = repository.search1(10, 20, "P");
 		List<ProductMinDTO> result1 = list.stream().map(x -> new ProductMinDTO(x)).collect(Collectors.toList());
 		System.out.println("\n*** SQL RESULT:");
-		result1.forEach(m -> System.out.println(m));
+		result1.forEach(p -> System.out.println(p));
 		System.out.println("\n\n");
-		
+
+		// JPQL
+		List<ProductMinDTO> result2 = repository.search2(10, 20, "P");
+		System.out.println("\n*** JPQL RESULT:");
+		result2.forEach(p -> System.out.println(p));
+
 	}
 }
