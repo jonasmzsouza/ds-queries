@@ -32,5 +32,10 @@ public class Uri2609Application implements CommandLineRunner {
 		result1.forEach(p -> System.out.println(p));
 		System.out.println("\n\n");
 		
+		// JPQL
+		List<CategorySumDTO> result2 = repository.search2();
+		System.out.println("\n*** JPQL RESULT:");
+		result2.forEach(p -> System.out.println(p));
+		
 	}
 }
